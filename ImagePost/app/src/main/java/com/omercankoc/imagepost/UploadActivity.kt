@@ -2,19 +2,10 @@ package com.omercankoc.imagepost
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 
-class AuthActivity : AppCompatActivity() {
+class UploadActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_auth)
-    }
-
-    fun SignIn(view : View){
-
-    }
-
-    fun SignUp(view : View){
-        
+        setContentView(R.layout.activity_upload)
     }
 }
