@@ -40,7 +40,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Sign In"
-            android:onClick="SignIn"/>
+            android:onClick="signIn"/>
 
         <Button
             android:id="@+id/buttonSignUp"
@@ -48,7 +48,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Sign Up"
-            android:onClick="SignUp"/>
+            android:onClick="signUp"/>
     </LinearLayout>
 
 </LinearLayout>
