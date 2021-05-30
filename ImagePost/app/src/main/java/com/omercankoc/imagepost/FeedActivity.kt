@@ -33,6 +33,7 @@ class FeedActivity : AppCompatActivity() {
         if(item.itemId == R.id.add_post){
             val intent = Intent(applicationContext,UploadActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         // Cikis yap.
