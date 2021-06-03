@@ -11,6 +11,10 @@ class UploadActivity : AppCompatActivity() {
         setContentView(R.layout.activity_upload)
     }
 
+    fun select(view : View){
+
+    }
+
     fun upload(view : View){
 
     }
