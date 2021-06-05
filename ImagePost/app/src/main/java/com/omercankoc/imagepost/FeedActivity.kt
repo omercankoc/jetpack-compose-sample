@@ -21,6 +21,8 @@ class FeedActivity : AppCompatActivity() {
     var userComments : ArrayList<String> = ArrayList()
     var userImages : ArrayList<String> = ArrayList()
 
+    var adapter : RecyclerAdapter? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed)
@@ -33,6 +35,8 @@ class FeedActivity : AppCompatActivity() {
         // Recycle View tanimla ve yapilandir.
         var layoutManager = LinearLayoutManager(this)
         recycleView.layoutManager = layoutManager
+        adapter = RecyclerAdapter(userEMails,userComments,userImages)
+        recycleView.adapter = adapter
     }
 
     // Menuyu arayuze bagla. (Inflater)
@@ -90,6 +94,8 @@ class FeedActivity : AppCompatActivity() {
                             userEMails.add(userEMail)
                             userComments.add(comment)
                             userImages.add(downloadUrl)
+
+                            adapter!!.notifyDataSetChanged()
                         }
                     }
                 }
