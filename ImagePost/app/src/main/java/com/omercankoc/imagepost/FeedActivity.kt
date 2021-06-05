@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import kotlinx.android.synthetic.main.activity_feed.*
 import java.sql.Timestamp
 
@@ -69,9 +70,9 @@ class FeedActivity : AppCompatActivity() {
     }
 
 
-    // Collection'daki postlari getir ve ilgili view'lara aktar.
+    // Collection'daki postlari getir ve ilgili view'lara tarihe gore aktar.
     fun getDataFromFirestore(){
-        database.collection("Posts").addSnapshotListener { value, error ->
+        database.collection("Posts").orderBy("date",Query.Direction.DESCENDING).addSnapshotListener { value, error ->
             if(error != null){
                 Toast.makeText(applicationContext,error.localizedMessage.toString(),Toast.LENGTH_LONG).show()
             } else {

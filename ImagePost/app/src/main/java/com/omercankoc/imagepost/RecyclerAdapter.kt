@@ -3,8 +3,10 @@ package com.omercankoc.imagepost
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class RecyclerAdapter(
     private val userEMails : ArrayList<String>,
@@ -15,13 +17,13 @@ class RecyclerAdapter(
     class PostHolder(view : View) : RecyclerView.ViewHolder(view){
         var recyclerEMailText : TextView? = null
         var recyclerCommentText : TextView? = null
-        var recyclerImageView : TextView? = null
+        var recyclerImageView : ImageView? = null
 
         // PostHolder sinifindan bir nesne olusturulurken cagirilacak ilk method.
         init {
             recyclerEMailText = view.findViewById(R.id.textViewEMail)
             recyclerCommentText = view.findViewById(R.id.textViewComment)
-            //recyclerImageView = view.findViewById(R.id.imageViewDownloadImage)
+            recyclerImageView = view.findViewById(R.id.imageViewDownloadImage)
         }
     }
 
@@ -34,6 +36,7 @@ class RecyclerAdapter(
     override fun onBindViewHolder(holder: PostHolder, position: Int) {
         holder.recyclerEMailText?.text = userEMails[position]
         holder.recyclerCommentText?.text = userComments[position]
+        Picasso.get().load(userImages[position]).into(holder.recyclerImageView)
     }
 
     override fun getItemCount(): Int {
