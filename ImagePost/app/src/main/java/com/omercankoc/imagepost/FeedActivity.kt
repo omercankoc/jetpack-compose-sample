@@ -5,17 +5,34 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_feed.*
+import java.sql.Timestamp
 
 class FeedActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var database : FirebaseFirestore
+
+    var userEMails : ArrayList<String> = ArrayList()
+    var userComments : ArrayList<String> = ArrayList()
+    var userImages : ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed)
 
         auth = FirebaseAuth.getInstance()
+        database = FirebaseFirestore.getInstance()
+
+        getDataFromFirestore()
+
+        // Recycle View tanimla ve yapilandir.
+        var layoutManager = LinearLayoutManager(this)
+        recycleView.layoutManager = layoutManager
     }
 
     // Menuyu arayuze bagla. (Inflater)
@@ -45,5 +62,38 @@ class FeedActivity : AppCompatActivity() {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+
+    // Collection'daki postlari getir ve ilgili view'lara aktar.
+    fun getDataFromFirestore(){
+        database.collection("Posts").addSnapshotListener { value, error ->
+            if(error != null){
+                Toast.makeText(applicationContext,error.localizedMessage.toString(),Toast.LENGTH_LONG).show()
+            } else {
+                if(value != null){
+                    if(!value.isEmpty){
+                        // Verileri ilgili dizileri temizle.
+                        userEMails.clear()
+                        userComments.clear()
+                        userImages.clear()
+
+                        val documents = value.documents
+                        for(document in documents){
+                            var comment = document.get("comment") as String
+                            var userEMail = document.get("userEMail") as String
+                            var downloadUrl = document.get("downloadUrl") as String
+                            var timeStamp = document.get("date") as com.google.firebase.Timestamp
+                            val date = timeStamp.toDate()
+
+                            // Verileri ilgili dizilere aktar.
+                            userEMails.add(userEMail)
+                            userComments.add(comment)
+                            userImages.add(downloadUrl)
+                        }
+                    }
+                }
+            }
+        }
     }
 }
