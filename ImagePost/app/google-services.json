@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "603519169541",
+    "project_id": "imagepost-1b0a9",
+    "storage_bucket": "imagepost-1b0a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603519169541:android:a790a99fb90169c21a986c",
+        "android_client_info": {
+          "package_name": "com.omercankoc.imagepost"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603519169541-lv3n3re8ap21jv5iuvr8oprvpg395cu7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2t9IWUs1NMIaYdjthA7iU2CsKGU9zgsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603519169541-lv3n3re8ap21jv5iuvr8oprvpg395cu7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
