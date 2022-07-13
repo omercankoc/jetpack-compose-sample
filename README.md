@@ -14,13 +14,13 @@
 ## Opacity Animation
 It enables the transformation of visual objects into transparent ones. 0 makes it invisible at all, 1 makes it fully visible.
 ```swift
-struct TestView: View {
+struct AnimationView: View {
     
     @State private var opacity : Double = 1.0
     
     var body: some View {
         VStack {
-            Image("horizontal_gozen_pass_logo")
+            Image("image")
                 .frame(width: 200,
                         height: 200,
                         alignment: .center)
@@ -53,13 +53,13 @@ struct TestView: View {
 ## Scale Animation
 An animation format used to change the size of a visual object.
 ```swift
-struct TestView: View {
+struct AnimationView: View {
     
     @State private var scale : Bool = true
     
     var body: some View {
         VStack {
-            Image("horizontal_gozen_pass_logo")
+            Image("image")
                 .frame(width: 200,
                         height: 200,
                         alignment: .center)
@@ -99,7 +99,7 @@ struct AnimationView: View {
     
     var body: some View {
         VStack {
-            Image("horizontal_gozen_pass_logo")
+            Image("image")
                 .frame(width: 200,
                         height: 200,
                         alignment: .center)
@@ -141,7 +141,7 @@ struct AnimationView: View {
     
     var body: some View {
         VStack {
-            Image("horizontal_gozen_pass_logo")
+            Image("image")
                 .frame(width: 200,
                         height: 200,
                         alignment: .center)
