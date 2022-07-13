@@ -175,3 +175,15 @@ struct AnimationView: View {
     }
 }
 ```
+### Delay -> Used to delay the start of animations
+```swift
+withAnimation(.easeInOut(duration: 1.0).delay(1.0)){
+    ...
+}
+```
+### Repeat -> Specifies the repetition of the specified animation
+```swift
+withAnimation(.easeInOut(duration: 1.0).repeatCount(2)){
+    ...
+}
+```
