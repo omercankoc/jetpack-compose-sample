@@ -1,5 +1,18 @@
 # Swift UI Animations
+
+### Animation Timing
+- <b>.linear:</b> This transitions the attribute from the start to end value evenly over time. This is a good timing curve for repeating animations, but it doesn’t look as natural as the eased functions.
+
+- <b>.easeIn:</b> An eased-in animation starts off slow and picks up speed over time. This is good for animations that start from a resting point and finish off-screen.
+
+- <b>.easeOut:</b> Eased-out animations start fast and end slow. This is good for animating something coming to a steady state or final position.
+
+- <b>.easeInOut:</b> Ease in and out curves combine both easeIn and easeOut. This is good for animations that start in one steady spot and end at another equilibrium. This is best for most applications. That is why this is timing curve used by .default.
+
+- <b>.timingCurve:</b> This allows you to specify a custom timing curve. This is rarely needed.
+
 ## Opacity Animation
+It enables the transformation of visual objects into transparent ones. 0 makes it invisible at all, 1 makes it fully visible.
 ```swift
 struct TestView: View {
     
@@ -38,6 +51,7 @@ struct TestView: View {
 }
 ```
 ## Scale Animation
+An animation format used to change the size of a visual object.
 ```swift
 struct TestView: View {
     
@@ -77,6 +91,7 @@ struct TestView: View {
 ```
 
 ## Rotate Animation
+They are animations created by rotating the visual object.
 ```swift
 struct AnimationView: View {
     
