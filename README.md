@@ -1,4 +1,4 @@
-# Swift UI Animations
+# Swift UI With Animation
 
 ### Animation Timing
 - <b>.linear:</b> This transitions the attribute from the start to end value evenly over time. This is a good timing curve for repeating animations, but it doesn’t look as natural as the eased functions.
