@@ -1,4 +1,6 @@
-struct AnimationView: View {
+import SwiftUI
+
+struct ScaleView: View {
     
     @State private var scale : Bool = true
     
