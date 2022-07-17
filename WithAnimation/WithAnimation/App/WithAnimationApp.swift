@@ -11,7 +11,7 @@ import SwiftUI
 struct WithAnimationApp: App {
     var body: some Scene {
         WindowGroup {
-            TransformAnimation()
+            RotateAnimation()
         }
     }
 }
